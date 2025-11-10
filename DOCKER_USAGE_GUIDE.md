@@ -9,8 +9,8 @@
 SpectraBench-Vision은 서로 다른 `transformers` 버전이 필요한 Vision-Language 모델들을 Docker 컨테이너로 격리하여 평가합니다.
 
 **지원 컨테이너**:
-- `ghcr.io/gwleee/spectravision:4.33` - Qwen-VL, mPLUG-Owl2, Monkey-Chat, InternLM-XComposer 시리즈 (5개 모델)
-- `ghcr.io/gwleee/spectravision:4.37` - LLaVA 시리즈 (2개 모델)
+- `ghcr.io/kisti-koni/spectravision:4.33` - Qwen-VL, mPLUG-Owl2, Monkey-Chat, InternLM-XComposer 시리즈 (5개 모델)
+- `ghcr.io/kisti-koni/spectravision:4.37` - LLaVA 시리즈 (2개 모델)
 
 ---
 
@@ -65,7 +65,7 @@ EOF
 docker run --rm --gpus all \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.33 \
+  ghcr.io/kisti-koni/spectravision:4.33 \
   python /workspace/VLMEvalKit/run.py \
   --model qwen_chat \
   --data MMBench_DEV_EN
@@ -74,7 +74,7 @@ docker run --rm --gpus all \
 docker run --rm --gpus all \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.33 \
+  ghcr.io/kisti-koni/spectravision:4.33 \
   python /workspace/VLMEvalKit/run.py \
   --model qwen_chat \
   --data MMBench_DEV_EN TextVQA_VAL GQA_TestDev_Balanced
@@ -87,7 +87,7 @@ docker run --rm --gpus all \
 docker run --rm --gpus all \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py \
   --model llava_v1.5_7b \
   --data MMBench_DEV_EN TextVQA_VAL
@@ -96,7 +96,7 @@ docker run --rm --gpus all \
 docker run --rm --gpus all \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py \
   --model InternVL2-8B \
   --data MMBench_DEV_EN
@@ -113,7 +113,7 @@ docker run --rm --gpus all \
 docker run --rm --gpus '"device=0"' \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py \
   --model llava_v1.5_7b \
   --data MMBench_DEV_EN
@@ -122,7 +122,7 @@ docker run --rm --gpus '"device=0"' \
 docker run --rm --gpus '"device=0,1"' \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py \
   --model llava_v1.5_13b \
   --data MMBench_DEV_EN
@@ -136,7 +136,7 @@ docker run --rm --gpus all \
   -e VLMEVAL_SAMPLE_LIMIT=10 \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py \
   --model llava_v1.5_7b \
   --data MMBench_DEV_EN
@@ -159,7 +159,7 @@ docker run --rm --gpus all \
 docker run -it --gpus all \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   /bin/bash
 
 # 컨테이너 내부에서:
@@ -175,7 +175,7 @@ docker run -d --name spectravision_437 \
   --gpus all \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   tail -f /dev/null
 
 # 평가 실행
@@ -216,7 +216,7 @@ chmod +x run_eval_433.sh
 docker run --rm --gpus all \
   -v $(pwd)/outputs:/workspace/outputs \      # 결과 파일
   -v $(pwd)/.env:/workspace/.env \            # 환경 변수
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py --model llava_v1.5_7b --data MMBench
 ```
 
@@ -236,7 +236,7 @@ docker run --rm --gpus all \
   -e HF_HOME=/tmp/.cache/huggingface \
   -e TRANSFORMERS_CACHE=/tmp/.cache/huggingface \
   -e MPLCONFIGDIR=/tmp/.cache/matplotlib \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py \
   --model llava_v1.5_7b \
   --data MMBench_DEV_EN
@@ -324,7 +324,7 @@ cat outputs/20251030_001/EVALUATION_REPORT.md
 docker run --rm --gpus all \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py \
   --model InternVL2-2B \
   --data MMBench_DEV_EN
@@ -333,7 +333,7 @@ docker run --rm --gpus all \
 docker run --rm --gpus '"device=1"' \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py \
   --model llava_v1.5_7b \
   --data MMBench_DEV_EN
@@ -356,8 +356,8 @@ echo "HUGGING_FACE_HUB_TOKEN=hf_your_new_token_here" > .env
 
 ```bash
 # 수동 다운로드
-docker pull ghcr.io/gwleee/spectravision:4.33
-docker pull ghcr.io/gwleee/spectravision:4.37
+docker pull ghcr.io/kisti-koni/spectravision:4.33
+docker pull ghcr.io/kisti-koni/spectravision:4.37
 
 # 이미지 확인
 docker images | grep spectravision
@@ -406,7 +406,7 @@ docker run -d --name persistent_437 \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
   -v $(pwd)/cache/huggingface:/tmp/.cache/huggingface \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   tail -f /dev/null
 
 # 여러 평가 실행 (모델은 메모리에 유지됨)
@@ -428,7 +428,7 @@ docker stop persistent_437 && docker rm persistent_437
 docker run --rm --gpus '"device=0,1"' \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py \
   --model llava_v1.5_13b \
   --data MMBench_DEV_EN
@@ -441,14 +441,14 @@ docker run --rm --gpus '"device=0,1"' \
 docker run -d --name eval_gpu0 --gpus '"device=0"' \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py \
   --model llava_v1.5_7b --data MMBench_DEV_EN
 
 docker run -d --name eval_gpu1 --gpus '"device=1"' \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py \
   --model InternVL2-8B --data TextVQA_VAL
 
