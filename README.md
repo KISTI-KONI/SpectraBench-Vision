@@ -38,7 +38,7 @@ nano .env  # HUGGING_FACE_HUB_TOKEN=hf_your_token_here
 docker run --rm --gpus all \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.33 \
+  ghcr.io/kisti-koni/spectravision:4.33 \
   python /workspace/VLMEvalKit/run.py \
   --model qwen_chat \
   --data MMBench_DEV_EN
@@ -50,7 +50,7 @@ docker run --rm --gpus all \
 docker run --rm --gpus all \
   -v $(pwd)/outputs:/workspace/outputs \
   -v $(pwd)/.env:/workspace/.env \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py \
   --model llava_v1.5_7b \
   --data MMBench_DEV_EN TextVQA_VAL
@@ -129,7 +129,7 @@ outputs/[timestamp]/
 ```bash
 docker run --rm --gpus '"device=0,1"' \
   -v $(pwd)/outputs:/workspace/outputs \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py --model llava_v1.5_7b --data MMBench
 ```
 
@@ -138,7 +138,7 @@ docker run --rm --gpus '"device=0,1"' \
 docker run --rm --gpus all \
   -e VLMEVAL_SAMPLE_LIMIT=10 \
   -v $(pwd)/outputs:/workspace/outputs \
-  ghcr.io/gwleee/spectravision:4.37 \
+  ghcr.io/kisti-koni/spectravision:4.37 \
   python /workspace/VLMEvalKit/run.py --model llava_v1.5_7b --data MMBench
 ```
 
@@ -182,8 +182,8 @@ echo "HUGGING_FACE_HUB_TOKEN=hf_your_token_here" >> .env
 **이미지 다운로드 실패**
 ```bash
 # 수동 다운로드
-docker pull ghcr.io/gwleee/spectravision:4.33
-docker pull ghcr.io/gwleee/spectravision:4.37
+docker pull ghcr.io/kisti-koni/spectravision:4.33
+docker pull ghcr.io/kisti-koni/spectravision:4.37
 ```
 
 ---
@@ -203,7 +203,7 @@ Apache License 2.0
   title={SpectraBench-Vision},
   author={KISTI Large-scale AI Research Center},
   year={2025},
-  url={https://github.com/gwleee/SpectraBench-Vision/},
+  url={https://github.com/KISTI-KONI/SpectraBench-Vision/},
   license={Apache-2.0},
 }
 ```
