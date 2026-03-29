@@ -199,10 +199,10 @@ Apache License 2.0
 ## 인용
 
 ```bibtex
-@software{spectrabench-vision2025,
+@software{spectrabench-vision2026,
   title={SpectraBench-Vision},
   author={KISTI Large-scale AI Research Center},
-  year={2025},
+  year={2026},
   url={https://github.com/KISTI-KONI/SpectraBench-Vision/},
   license={Apache-2.0},
 }
@@ -210,5 +210,5 @@ Apache License 2.0
 
 ---
 
-*Developed by Gunwoo Lee, AI Platform Team (Leader: Ryong Lee)*
+*Developed by Gunwoo Lee (Team Leader*), Autonomous Intelligence System Research Team*
 *KISTI Large-scale AI Research Center (Director: Kyong-Ha Lee)*
